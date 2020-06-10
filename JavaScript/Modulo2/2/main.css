@@ -1,0 +1,11 @@
+#content {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+}
+
+.block {
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+}

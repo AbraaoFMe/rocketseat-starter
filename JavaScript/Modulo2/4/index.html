@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="nome">
+    <button onClick="adicionar()">Adicionar</button>
+
+    <ul>
+    </ul>
+
+    <script>
+
+        ul = document.querySelector('ul');
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+
+        for (nome of nomes) {
+            adicionarNaLista(nome)
+        }
+
+        function adicionarNaLista(item){
+            let li = document.createElement('li');
+            let text = document.createTextNode(item);
+
+            li.appendChild(text);
+
+            ul.appendChild(li);
+        }
+        
+        const inputElement = document.querySelector("input[name='nome']");
+
+        function adicionar(){
+            text = inputElement.value;
+            inputElement.value = "";
+
+            nomes.push(text);
+
+            adicionarNaLista(text);
+
+        }
+
+    </script>
+</body>
+
+</html>

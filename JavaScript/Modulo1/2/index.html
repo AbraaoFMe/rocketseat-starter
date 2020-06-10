@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function pares(x, y) {
+            // Checking whether x is even or odd
+            x = (x%2 === 0)? x:x + 1
+
+            for(x; x <= y; x += 2){
+                console.log(x)
+            }
+        }
+
+        pares(31, 322)
+    </script>
+</body>
+</html>
