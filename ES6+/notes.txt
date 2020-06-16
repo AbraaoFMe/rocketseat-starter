@@ -1,0 +1,153 @@
+--> ES6 = evolucao do javascript
+
+* install yarn
+* initialize yarn package --> yarn init
+* install babel/cli --> yarn add @babel/cli
+* install babel/preset-env --> yarn add @babel/preset-env
+* install babel/preset-env --> yarn add @babel/core
+* opcional --> .gitignore 
+* configurar babel
+    * .babelrc
+    * {"presets": ["@babel/preset-env"]}
+* index.html
+* main.js
+* package.json
+    * "scripts": {
+        "dev" : "babel ./main.js -o ./bundle.js -w"
+    }
+
+* operacoes em vetores
+    * map --> Cada item do vetor passara pela funcao
+        arr2 = arr1.map((item, index) => ...)
+    * reduce --> "Consome" o vetor, transformando em apenas um valor
+        sum = arr.reduce((total, next) => ...)
+    * filter
+        filtered = arr.filter((item) => true or false)
+    * find
+        found = arr.find((item) => true or false)
+
+* valores padrao para funcao
+    function(arg1=padrao1, arg2=padrao2)
+
+* desestruturacao
+    const object1 = {
+        prop1: 'value1',
+        prop2: 'value2', 
+        prop3: {
+            prop3a: 'value3a',
+            prop3b: 'value3b',
+        },
+    };
+
+    const {prop1, prop2} = object1;
+
+    function funcao1({prop1, prop2}){
+        ...
+    };
+
+    funcao1(object1);
+
+* rest/spread (...)
+    * instalar o plugin --> yarn add @babel/plugin-proposal-object-rest-spread
+    //REST --> Resto das propriedades
+    const {nome, ...resto} = object1;
+    --> a variavel resto ira armazenar os demais valores de object1
+
+    function funcao(...params){
+        ...
+    }
+
+    //SPREAD 
+    arr1 = [1, 2, 3]
+    arr2 = [4. 5. 6]
+
+    arr3 = [...arr1, ...arr2]
+    --> os valores de arr1 e arr2 serao copiados individualmente
+
+    const object2 = {...object1, prop1: 'newvalue1'}
+    --> os valores de object1 serao copiados, mas o de prop1 sera modificado
+
+* template literals
+    `Lorem ipsum ${text}, text ipsum ${lorem}`
+
+* object short syntax
+    obect3 = {
+        prop1: prop1
+    }
+    --> quando o nome da propriedade e igual ao da variavel, nao precisa repetir
+    obect3 = {
+        prop1
+    } 
+
+* webpack: servico que disponibiliza trabalhar com varios arquivos js que serao compilados em um arquivo bundle.js
+    * dependencies --> devDependencies
+    * yarn add webpack webpack-cli -D
+    * arquivo de configuracao (webpack.config.js)
+    * instalar babel loader --> yarn add babel-loader -D
+    * script (overwrite) --> "dev" : "webpack --mode=development -w"
+
+* import/export
+    export function funcao(a, b) {
+        ...
+    }
+
+    import {funcao } from './arquivo'
+
+    * export default function funcao(){
+        ...
+    }
+
+    import funcao from './arquivo'
+    import fucdefault {other}..
+    import * as funcoes...
+
+* webpack dev server
+    * pasta public (arquivos que nao precisam ser monitorados as mudancas) e src (arquivos js)
+    * yarn add webpack-dev-server -D
+    * webpack.config.js 
+        * devServer: {
+            //caminho para o servidor
+            contentBase: __dirname + '/public'
+
+        }
+    * script --> "dev" : "webpack-dev-server --mode=development -w"
+
+* async/await
+    * promises
+        const minhaPromise = () => new Promise((resolve, reject) => {
+        setTimeout(() => { resolve('OK') }, 2000)
+        });
+
+        minhaPromise()
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => {
+
+            })
+    * async function executaPromise() {
+        const response = await minhaPromise();
+    
+        console.log(response);
+        }
+    * babel/polyfill --> yarn add @babel/polyfill -D
+        * webpack.config.js --> entry: ["@babel/polyfill", ...]
+
+* axios --> biblioteca que da acesso a uma api para trabalhar com requisicoes assincronas
+    * yarn add axios
+    * exemplo
+    import axios from 'axios';
+
+    class Api{
+        static async getUserInfo(username) {
+            try{
+                const response = await axios.get(`https://api.github.com/users/${username}`)
+                console.log(response.data);
+            } catch (err) {
+                console.warn('Erro na API');
+            }
+            
+        }
+    }
+
+    Api.getUserInfo('diego3g');
