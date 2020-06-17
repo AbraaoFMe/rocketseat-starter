@@ -33,3 +33,7 @@
         products: [],
     }
     * sempre que alguma variavel de estado mudar, o metodo render sera esxecutado de novo
+
+* Para fazer a navegacao --> react-router-dom
+    * instalar -> yarn add react-router-dom
+    * arquivo em scr 'routes.js'
