@@ -1,0 +1,49 @@
+* NodeJS permite usar Javascript no back-end
+* Plataforma que utiliza a v8 engine no back end tratando requisicoes e respostas
+* API/REST --> 
+    * Full MVC --> front-end junto do back-end\
+    * API/REST --> tudo separado
+        * beneficios: flexibilidade no front-end, unico back-end para qualquer plataforma'
+
+* Inicializacao
+    * Criar pasta node-api
+    * npm init -Y
+    * instalar express --> npm install express
+        * epxress = microframework que ira ajudar a lidar com rotas e views
+    * arquivo server.js
+
+* Nodemon --> possibilita o live reloading
+    * Instalar como dependencia de desenvolvimento --> npm install -D nodemon
+    * Adicionar script dev em package.json
+        * "dev": "nodemon server.js"
+        * npm rum dev
+
+* Instalar mongodb por meio do docker
+    * Docker: permite fazer a containerizacao de recursos e softwares (maquinas virtuais)
+    * docker pull mongo --> baixando maquina virtual mongodb
+    * docker run --name mongodb -p 27017:27017 -d mongo
+        --> Subindo maquina virtual com nome mongodb, redirecionando da porta 27017 para a porta 27017 usando a imagem mongo
+    * docker ps --> lista todas as maquinas ativas
+        * docker start [name]
+    * robo 3t --> ajuda a gerenciar o banco de dados mongodb
+    * instalar dependencia mongoose --> npm install mongoose
+        * encapsula as operacoes do banco de dados em codigo (ORM)
+        * importar mongoose no server.js
+
+* Models --> tabelas no banco de dados
+    * Biblioteca que ajuda require-dir
+        * install --> npm install require-dir
+
+* Controller --> arquitetura MVC
+    * controla a logica das rotas
+
+* Utilizando o Insomnia
+    * Ajuda a ver as rotas em acao
+
+* Paginacao nos resultados
+    * mongoose-paginate --> npm install mongoose-paginate
+    * importar no Product.js
+    * Product.find() --> Product.paginate({}, {page: 1, limit: 10})
+
+* CORS nao permite que outro site acesse a API
+    * npm install cors
