@@ -1,0 +1,35 @@
+* ReactJS --> Ajuda a organizar a DOM do HTML
+* Instalar NodeJS
+* Yarn tbm
+
+* Instalar pacote create-react-app
+    * npm install -g create-react-app --> faz o trabalho do webpack, babel,...
+
+* Create react-app --> create-react-app <nomeapp>
+
+* Estrutura de arquivos
+    * public --> arquivos diretamente acessados pelo usuario final da aplicacao
+    * src --> codigo da aplicacao
+
+* para rodar --> npm start
+
+* index.js --> primeiro arquivo aberto pela a aplicacao
+
+* Componentes --> pedacos de front-end
+    * pasta componets em src
+
+* Cada componente pode ter uma folha de estilo que sera importada por javascript
+
+* Para consumir a api --> axios
+    * yarn add axios
+    * criar pasta chamada services (onde vai ter todos os arquivos que permitem a conexao com servicos externos)
+
+* Ciclos de vida do componente
+    * componentDidMount() --> assim que o componente for mostrado em tela
+
+* Estados
+    * Nao se armazena os valores em variaveis, mas em variaveis de estato
+    * state ={
+        products: [],
+    }
+    * sempre que alguma variavel de estado mudar, o metodo render sera esxecutado de novo
